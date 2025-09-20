@@ -16,10 +16,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set node
+      - name: Set PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.16.1
+          run_install: false
+
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Chromium with Playwright
+        run: pnpm exec playwright install --with-deps chromium
 
       - run: npx changelogithub
         env:
