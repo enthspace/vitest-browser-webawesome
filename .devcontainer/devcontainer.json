@@ -1,0 +1,29 @@
+{
+  "name": "vitest-browser-webawesome Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24.8.0",
+      "pnpmVersion": "10.16.1",
+      "nvmVersion": "0.40.3",
+      "installYarnUsingApt": false
+    },
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
+  },
+  "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vitest.explorer",
+        "TypeScriptTeam.native-preview",
+        "oxc.oxc-vscode",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "oxc.typeAware": true,
+        "oxc.enable": true,
+        "typescript.experimental.useTsgo": true
+      }
+    }
+  }
+}

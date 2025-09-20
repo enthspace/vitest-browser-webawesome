@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "lib": ["DOM", "DOM.Iterable", "ES2024"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "disableSourceOfProjectReferenceRedirect": true,
+    "paths": {
+      "vitest-browser-webawesome": ["./src"]
+    },
+    "types": ["@awesome.me/webawesome/dist/custom-elements-jsx.d.ts"]
+  },
+  "references": [
+    {
+      "path": "./tsconfig.src.json"
+    }
+  ],
+  "include": ["tests"],
+  "exclude": ["src"]
+}

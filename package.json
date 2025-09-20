@@ -1,0 +1,67 @@
+{
+  "name": "vitest-browser-webawesome",
+  "version": "0.0.0",
+  "description": "Render Web Awesome components in Vitest Browser Mode",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/enthspace/vitest-browser-webawesome#readme",
+  "bugs": {
+    "url": "https://github.com/enthspace/vitest-browser-webawesome/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enthspace/vitest-browser-webawesome.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "format": "prettier --write .",
+    "lint": "oxlint --type-aware",
+    "lint:fix": "oxlint --type-aware --fix --fix-suggestions --fix-dangerously",
+    "test": "vitest --run",
+    "test:coverage": "vitest --run --coverage",
+    "typecheck": "tsgo -b",
+    "release": "bumpp && npm publish"
+  },
+  "devDependencies": {
+    "@awesome.me/webawesome": "^3.0.0-beta.6",
+    "@preact/preset-vite": "^2.10.2",
+    "@types/node": "^24.5.2",
+    "@typescript/native-preview": "7.0.0-dev.20250919.1",
+    "@vitest/browser": "^4.0.0-beta.11",
+    "@vitest/coverage-v8": "4.0.0-beta.11",
+    "bumpp": "^10.1.0",
+    "oxlint": "^1.16.0",
+    "oxlint-tsgolint": "^0.2.0",
+    "playwright": "^1.55.0",
+    "preact": "^10.0.0",
+    "prettier": "^3.6.2",
+    "tsdown": "^0.15.2",
+    "vite": "npm:rolldown-vite@^7.1.11",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^4.0.0-beta.11",
+    "vitest-browser-preact": "^0.1.2"
+  },
+  "peerDependencies": {
+    "@awesome.me/webawesome": "^3.0.0-0 || ^3.0.0",
+    "@vitest/browser": "^3.1.0 || ^4.0.0-0",
+    "vitest": "^3.1.0 || ^4.0.0-0"
+  },
+  "engines": {
+    "node": "24.8.0"
+  },
+  "packageManager": "pnpm@10.16.1"
+}

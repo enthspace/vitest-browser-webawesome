@@ -1,0 +1,7 @@
+*.tsbuildinfo
+.pnpm-store
+.typecheck
+.vitest-attachments
+coverage
+dist
+node_modules
