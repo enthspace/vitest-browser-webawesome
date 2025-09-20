@@ -13,10 +13,7 @@ import "@awesome.me/webawesome/dist/styles/webawesome.css";
 // Dynamically determine the base path for Web Awesome assets
 // This assumes that Vite is configured to handle the `@awesome.me/webawesome` alias correctly
 // and that the assets are served from the correct location in the test environment.
-// oxlint-disable-next-line default
-import loaderUrl from "@awesome.me/webawesome/dist/webawesome.loader.js?url";
-const loaderAbs = new URL(loaderUrl, window.location.origin);
-const base = new URL("./", loaderAbs).href;
+const base = import.meta.resolve("/node_modules/@awesome.me/webawesome/dist");
 setBasePath(base);
 
 // @ts-expect-error - page.render is added by another library (e.g. vitest-browser-preact or vitest-browser-react)
