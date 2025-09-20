@@ -27,6 +27,17 @@ jobs:
         with:
           node-version: 24.8.0
 
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Build
+        run: pnpm run build
+
       - run: npx changelogithub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to npm
+        run: pnpm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
