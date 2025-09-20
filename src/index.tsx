@@ -13,6 +13,7 @@ import "@awesome.me/webawesome/dist/styles/webawesome.css";
 // Dynamically determine the base path for Web Awesome assets
 // This assumes that Vite is configured to handle the `@awesome.me/webawesome` alias correctly
 // and that the assets are served from the correct location in the test environment.
+// oxlint-disable-next-line default
 import loaderUrl from "@awesome.me/webawesome/dist/webawesome.loader.js?url";
 const loaderAbs = new URL(loaderUrl, window.location.origin);
 const base = new URL("./", loaderAbs).href;
@@ -33,8 +34,8 @@ if (!existingRender || typeof existingRender !== "function") {
 // This ensures that tests don't try to interact with components before they are ready
 page.extend({
   // @ts-expect-error - page.render is added by another library (e.g. vitest-browser-preact or vitest-browser-react)
-  render: async function (...args: unknown[]) {
-    const result = await existingRender.apply(this, args);
+  render: async function render(...args: unknown[]) {
+    const result: unknown = await existingRender.apply(this, args);
     await allDefined();
     return result;
   },

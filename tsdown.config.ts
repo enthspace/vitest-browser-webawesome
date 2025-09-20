@@ -2,12 +2,9 @@ import { defineConfig } from "tsdown";
 
 export default defineConfig([
   {
-    entry: ["./src/index.ts"],
+    entry: ["./src/index.tsx"],
 
     clean: true,
-    exports: true,
-    format: ["esm"],
-    external: ["@awesome.me/webawesome", "vitest", "@vitest/browser"],
     dts: {
       tsgo: true,
 
@@ -18,6 +15,9 @@ export default defineConfig([
       resolve: true,
       tsconfig: "./tsconfig.src.json",
     },
+    exports: true,
+    external: ["@awesome.me/webawesome", "vitest", "@vitest/browser"],
+    format: ["esm"],
     platform: "neutral",
   },
 ]);

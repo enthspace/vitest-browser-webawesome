@@ -1,21 +1,29 @@
+import type { VNode } from "preact";
 import { expect, test } from "vitest";
 import { page } from "@vitest/browser/context";
-import { useState } from "preact/hooks";
+import { useCallback, useState } from "preact/hooks";
 
+// oxlint-disable-next-line no-unassigned-import
 import "vitest-browser-preact";
+// oxlint-disable-next-line no-unassigned-import
 import "vitest-browser-webawesome";
 
-type CounterProps = {
+interface CounterProps {
   initialCount: number;
-};
+}
 
-const Counter = (props: CounterProps) => {
+function Counter(props: CounterProps): VNode {
   const [count, setCount] = useState(props.initialCount);
+
+  const handleClick = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
   return (
     <wa-button
       variant="brand"
       // @ts-expect-error Webawesome custom element type definiitions are missing onClick
-      onClick={() => setCount(count + 1)}
+      onClick={handleClick}
     >
       Clicked {count} times
     </wa-button>
