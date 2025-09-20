@@ -28,7 +28,7 @@ function Counter(props: CounterProps): VNode {
       Clicked {count} times
     </wa-button>
   );
-};
+}
 
 test("renders and updates after click", async (context) => {
   // oxlint-disable-next-line await-thenable

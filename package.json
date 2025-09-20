@@ -29,6 +29,7 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "oxlint --type-aware",
     "lint:fix": "oxlint --type-aware --fix --fix-suggestions --fix-dangerously",
     "test": "vitest --run",

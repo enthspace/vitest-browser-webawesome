@@ -27,18 +27,12 @@
         "disallowTypeAnnotations": true
       }
     ],
-    "eslint/func-style": [
-      "warn",
-      "declaration"
-    ],
+    "eslint/func-style": ["warn", "declaration"],
     "eslint/no-duplicate-imports": "off",
     "eslint/no-magic-numbers": [
       "error",
       {
-        "ignore": [
-          0,
-          1
-        ],
+        "ignore": [0, 1],
         "enforceConst": true,
         "detectObjects": false,
         "ignoreDefaultValues": true,
@@ -66,10 +60,7 @@
       }
     ],
     "import/no-duplicates": "error",
-    "import/consistent-type-specifier-style": [
-      "error",
-      "prefer-top-level"
-    ],
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
     "import/max-dependencies": [
       "error",
       {
@@ -125,17 +116,13 @@
         "**/*.spec.ts",
         "**/*.spec.tsx"
       ],
-      "plugins": [
-        "vitest"
-      ],
+      "plugins": ["vitest"],
       "rules": {
         "eslint/no-magic-numbers": "off"
       }
     },
     {
-      "files": [
-        "*.config.ts"
-      ],
+      "files": ["*.config.ts"],
       "rules": {
         "eslint/no-magic-numbers": "off",
         "oxc/no-rest-spread-properties": "off",
@@ -144,18 +131,13 @@
       }
     },
     {
-      "files": [
-        "*.tsx"
-      ],
+      "files": ["*.tsx"],
       "globals": {
         "document": "readonly",
         "URL": "readonly",
         "window": "readonly"
       },
-      "plugins": [
-        "react",
-        "react-perf"
-      ],
+      "plugins": ["react", "react-perf"],
       "rules": {
         "eslint/max-lines-per-function": [
           "error",
@@ -176,17 +158,13 @@
         "import/no-unassigned-import": [
           "error",
           {
-            "allow": [
-              "**/*.css"
-            ]
+            "allow": ["**/*.css"]
           }
         ],
         "react/jsx-filename-extension": [
           "error",
           {
-            "extensions": [
-              ".tsx"
-            ]
+            "extensions": [".tsx"]
           }
         ],
         "react/react-in-jsx-scope": "off",

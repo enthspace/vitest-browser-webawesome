@@ -25,21 +25,19 @@ To enable the library for all your browser tests, add it to a file in your `setu
 
 ```ts
 // In setup.ts
-import 'vitest-browser-preact'; // Must be imported before this library
-import 'vitest-browser-webawesome';
+import "vitest-browser-preact"; // Must be imported before this library
+import "vitest-browser-webawesome";
 
 // ... other test setup, including custom CSS
 ```
 
 ```ts
 // In vitest.config.ts
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    setupFiles: [
-      'setup.ts',
-    ],
+    setupFiles: ["setup.ts"],
     // ... other browser options
   },
 });
@@ -48,8 +46,8 @@ export default defineConfig({
 Alternatively, you can import it at the top of individual test files:
 
 ```tsx
-import 'vitest-browser-preact';
-import 'vitest-browser-webawesome';
+import "vitest-browser-preact";
+import "vitest-browser-webawesome";
 ```
 
 ### Example Test
@@ -58,9 +56,9 @@ Here is an example of testing a simple Preact component that uses a `<wa-button>
 
 ```tsx
 // tests/Counter.test.tsx
-import { expect, test } from 'vitest';
-import { page } from '@vitest/browser/context';
-import { useState } from 'preact/hooks';
+import { expect, test } from "vitest";
+import { page } from "@vitest/browser/context";
+import { useState } from "preact/hooks";
 
 type CounterProps = {
   initialCount: number;
@@ -69,30 +67,27 @@ type CounterProps = {
 const Counter = (props: CounterProps) => {
   const [count, setCount] = useState(props.initialCount);
   return (
-    <wa-button
-      variant="brand"
-      onClick={() => setCount(count + 1)}
-    >
+    <wa-button variant="brand" onClick={() => setCount(count + 1)}>
       Clicked {count} times
     </wa-button>
   );
 };
 
-test('renders and updates after click', async () => {
+test("renders and updates after click", async () => {
   // Make sure to await the render call
   await page.render(<Counter initialCount={0} />);
 
   // The button is ready for interaction
-  const button = page.getByRole('button', { name: 'Clicked 0 times' });
+  const button = page.getByRole("button", { name: "Clicked 0 times" });
   await expect.element(button).toBeVisible();
 
   await button.click();
 
   // The component updates as expected
-  await expect.element(page.getByText('Clicked 1 times')).toBeVisible();
+  await expect.element(page.getByText("Clicked 1 times")).toBeVisible();
   await expect
-    .element(page.getByText('Clicked 1 times'))
-    .toMatchScreenshot('clicked-once');
+    .element(page.getByText("Clicked 1 times"))
+    .toMatchScreenshot("clicked-once");
 });
 ```
 
@@ -102,7 +97,7 @@ This library has been tested with `vitest-browser-preact`. It should be compatib
 
 ```ts
 page.extend({
-	render: customRenderFunction,
+  render: customRenderFunction,
 });
 ```
 
